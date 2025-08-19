@@ -1,3 +1,5 @@
+`ifndef alu_agent
+`define alu_agent
 class alu_agent extends uvm_agent;
     `uvm_component_utils(alu_agent)
     alu_driver alu_drv;
@@ -32,3 +34,4 @@ class alu_agent extends uvm_agent;
         alu_mon.alu_vif = alu_agnt_cfg.alu_vif;
     endfunction
 endclass
+`endif

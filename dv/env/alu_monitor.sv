@@ -1,3 +1,5 @@
+`ifndef alu_monitor
+`define alu_monitor
 class alu_monitor extends uvm_monitor;
     `uvm_component_utils(alu_monitor)
     virtual alu_interface alu_vif;
@@ -52,3 +54,4 @@ class alu_monitor extends uvm_monitor;
         end
     endtask
 endclass
+`endif

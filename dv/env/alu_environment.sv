@@ -1,3 +1,5 @@
+`ifndef alu_environment
+`define alu_environment
 class alu_environment extends uvm_env;
     `uvm_component_utils(alu_environment)
     alu_agent_config alu_agnt_cfg;
@@ -25,3 +27,4 @@ class alu_environment extends uvm_env;
         alu_agnt.out_agnt_analysis_port.connect(alu_func_cov.analysis_export);
     endfunction
 endclass
+`endif

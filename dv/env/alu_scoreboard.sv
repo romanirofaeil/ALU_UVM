@@ -1,3 +1,5 @@
+`ifndef alu_scoreboard
+`define alu_scoreboard
 `uvm_analysis_imp_decl(_in)
 `uvm_analysis_imp_decl(_out)
 class alu_scoreboard extends uvm_scoreboard;
@@ -7,7 +9,6 @@ class alu_scoreboard extends uvm_scoreboard;
     alu_sequence_item input_items[$];
     alu_sequence_item expected_output_items[$];
     alu_sequence_item actual_output_items[$];
-    alu_sequence_item alu_seq_item;
     int Success;
     int Failures;
     function new(string name = "alu_scoreboard", uvm_component parent = null);
@@ -110,3 +111,4 @@ class alu_scoreboard extends uvm_scoreboard;
         `uvm_info(get_type_name(), $sformatf("number of Failures = %0d", Failures), UVM_NONE)
     endfunction
 endclass
+`endif

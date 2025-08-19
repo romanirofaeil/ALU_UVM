@@ -1,7 +1,9 @@
-`include "alu_interface.sv"
-`include "alu_package.sv"
+`ifndef alu_testbench
+`define alu_testbench
 module tb_top;
     import uvm_pkg::*;
+    import alu_test_package::*;
+    `include "uvm_macros.svh"
     logic clk;
     logic rst_n;
     time period;
@@ -33,8 +35,5 @@ module tb_top;
         uvm_config_db#(virtual alu_interface)::set(null, "", "alu_intf", alu_intf);
         run_test();
     end
-    initial begin
-        $dumpfile("tb_top.vcd");
-        $dumpvars();
-    end
 endmodule
+`endif

@@ -1,3 +1,5 @@
+`ifndef alu_ERROR_test
+`define alu_ERROR_test
 class alu_ERROR_test extends alu_test;
     `uvm_component_utils(alu_ERROR_test)
     function new(string name = "alu_ERROR_test", uvm_component parent = null);
@@ -8,3 +10,4 @@ class alu_ERROR_test extends alu_test;
         super.build_phase(phase);
     endfunction
 endclass
+`endif

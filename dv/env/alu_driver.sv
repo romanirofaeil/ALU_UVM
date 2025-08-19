@@ -1,3 +1,5 @@
+`ifndef alu_driver
+`define alu_driver
 class alu_driver extends uvm_driver #(alu_sequence_item);
     `uvm_component_utils(alu_driver)
     virtual alu_interface alu_vif;
@@ -31,3 +33,4 @@ class alu_driver extends uvm_driver #(alu_sequence_item);
             alu_vif.ALU_en <= 0;
     endtask
 endclass
+`endif

@@ -1,8 +1,7 @@
-typedef class alu_sequencer;
+`ifndef alu_sequence
+`define alu_sequence
 class alu_sequence extends uvm_sequence#(alu_sequence_item);
     `uvm_object_utils(alu_sequence)
-    `uvm_declare_p_sequencer(alu_sequencer)
-    uvm_phase phase;
     alu_sequence_config alu_seq_cfg;
     function new(string name = "alu_sequence");
         super.new(name);
@@ -13,9 +12,8 @@ class alu_sequence extends uvm_sequence#(alu_sequence_item);
     virtual task pre_body();
         if(!uvm_config_db#(alu_sequence_config)::get(m_sequencer, "", "alu_sequence_config", alu_seq_cfg))
             `uvm_fatal(get_type_name(), "Unable to get alu_seq_cfg")
-        phase = get_starting_phase();
-        if(phase != null)
-            phase.raise_objection(this);
+        if(starting_phase != null)
+            starting_phase.raise_objection(this);
     endtask
     virtual task body();
         alu_sequence_item alu_seq_item;
@@ -30,7 +28,8 @@ class alu_sequence extends uvm_sequence#(alu_sequence_item);
         end
     endtask
     virtual task post_body();
-        if(phase != null)
-            phase.drop_objection(this);
+        if(starting_phase != null)
+            starting_phase.drop_objection(this);
     endtask
 endclass
+`endif

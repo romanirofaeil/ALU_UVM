@@ -1,3 +1,5 @@
+`ifndef alu_sequence_config
+`define alu_sequence_config
 class alu_sequence_config extends uvm_object;
     `uvm_object_utils(alu_sequence_config)
     rand int num_of_seq_items;
@@ -6,3 +8,4 @@ class alu_sequence_config extends uvm_object;
         super.new(name);
     endfunction
 endclass
+`endif

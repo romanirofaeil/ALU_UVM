@@ -1,3 +1,5 @@
+`ifndef alu_A_MINUS_1_test
+`define alu_A_MINUS_1_test
 class alu_A_MINUS_1_test extends alu_test;
     `uvm_component_utils(alu_A_MINUS_1_test)
     function new(string name = "alu_A_MINUS_1_test", uvm_component parent = null);
@@ -8,3 +10,4 @@ class alu_A_MINUS_1_test extends alu_test;
         super.build_phase(phase);
     endfunction
 endclass
+`endif

@@ -1,3 +1,5 @@
+`ifndef alu_design
+`define alu_design
 module alu_design(
     input clk,
     input rst_n,
@@ -24,38 +26,50 @@ module alu_design(
         end
         else begin
             if(ALU_en) begin
-                if(!a_en && !b_en) begin
-                    C_tmp <= 0;
-                    $display("No Operation Is Selected!");
-                end
-                else if(a_en && !b_en) begin
-                    case(a_op)
-                        0 : C_tmp <= A + B;
-                        1 : C_tmp <= A - B;
-                        2 : C_tmp <= A ^ B;
-                        3 : C_tmp <= A & B;
-                        4 : C_tmp <= A & B;
-                        5 : C_tmp <= A | B;
-                        6 : C_tmp <= A ^~ B;
-                        7: begin C_tmp <= 0; $display("Invalid Operation Number 7!"); end
-                    endcase
-                end
-                else if(!a_en && b_en) begin
-                    case(b_op)
-                        0 : C_tmp <= ~(A & B);
-                        1 : C_tmp <= A + B;
-                        2 : C_tmp <= A + B;
-                        3: begin C_tmp <= 0; $display("Invalid Operation Number 3!"); end
-                    endcase
-                end
-                else begin
-                    case(b_op)
-                        0 : C_tmp <= A ^ B;
-                        1 : C_tmp <= A ^~ B;
-                        2 : C_tmp <= A - 1;
-                        3 : C_tmp <= B + 2;
-                    endcase
-                end
+                case({a_en, b_en})
+                    0:
+                        begin
+                            C_tmp <= 0;
+                            $display("No Operation Is Selected!");
+                        end
+                    1:
+                        begin
+                            case(b_op)
+                                0 : C_tmp <= ~(A & B);
+                                1 : C_tmp <= A + B;
+                                2 : C_tmp <= A + B;
+                                default: begin C_tmp <= 0; $display("Invalid Operation!"); end
+                            endcase
+                        end
+                    2:
+                        begin
+                            case(a_op)
+                                0 : C_tmp <= A + B;
+                                1 : C_tmp <= A - B;
+                                2 : C_tmp <= A ^ B;
+                                3 : C_tmp <= A & B;
+                                4 : C_tmp <= A & B;
+                                5 : C_tmp <= A | B;
+                                6 : C_tmp <= A ^~ B;
+                                default: begin C_tmp <= 0; $display("Invalid Operation!"); end
+                            endcase
+                        end
+                    3:
+                        begin
+                            case(b_op)
+                                0 : C_tmp <= A ^ B;
+                                1 : C_tmp <= A ^~ B;
+                                2 : C_tmp <= A - 1;
+                                3 : C_tmp <= B + 2;
+                                // coverage off
+                                default: begin C_tmp <= 0; $display("Invalid Operation!"); end
+                                // coverage on
+                            endcase
+                        end
+                    // coverage off
+                    default: begin C_tmp <= 0; $display("Invalid Operation!"); end/////////////////
+                    // coverage on
+                endcase
                 C_en_tmp <= 1;
             end
             else begin
@@ -67,3 +81,4 @@ module alu_design(
         C <= C_tmp;
     end
 endmodule
+`endif

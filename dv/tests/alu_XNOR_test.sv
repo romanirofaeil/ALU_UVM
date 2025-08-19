@@ -1,3 +1,5 @@
+`ifndef alu_XNOR_test
+`define alu_XNOR_test
 class alu_XNOR_test extends alu_test;
     `uvm_component_utils(alu_XNOR_test)
     function new(string name = "alu_XNOR_test", uvm_component parent = null);
@@ -8,3 +10,4 @@ class alu_XNOR_test extends alu_test;
         super.build_phase(phase);
     endfunction
 endclass
+`endif

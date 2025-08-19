@@ -1,3 +1,5 @@
+`ifndef alu_NAND_test
+`define alu_NAND_test
 class alu_NAND_test extends alu_test;
     `uvm_component_utils(alu_NAND_test)
     function new(string name = "alu_NAND_test", uvm_component parent = null);
@@ -8,3 +10,4 @@ class alu_NAND_test extends alu_test;
         super.build_phase(phase);
     endfunction
 endclass
+`endif

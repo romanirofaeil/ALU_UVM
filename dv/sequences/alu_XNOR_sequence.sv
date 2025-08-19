@@ -1,3 +1,5 @@
+`ifndef alu_XNOR_sequence
+`define alu_XNOR_sequence
 class alu_XNOR_sequence extends alu_sequence;
     `uvm_object_utils(alu_XNOR_sequence)
     function new(string name = "alu_XNOR_sequence");
@@ -7,3 +9,4 @@ class alu_XNOR_sequence extends alu_sequence;
         return (alu_seq_item.randomize() with {(a_en == 1 && b_en == 0 && a_op == 6) || (a_en == 1 && b_en == 1 && b_op == 1);});
     endfunction
 endclass
+`endif

@@ -1,3 +1,5 @@
+`ifndef alu_functional_coverage
+`define alu_functional_coverage
 class alu_functional_coverage extends uvm_subscriber#(alu_sequence_item);
     `uvm_component_utils(alu_functional_coverage)
     alu_sequence_item alu_seq_item;
@@ -81,3 +83,4 @@ class alu_functional_coverage extends uvm_subscriber#(alu_sequence_item);
         out_cvgr.sample();
     endfunction
 endclass
+`endif

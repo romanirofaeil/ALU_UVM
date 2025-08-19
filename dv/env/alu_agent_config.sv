@@ -1,3 +1,5 @@
+`ifndef alu_agent_config
+`define alu_agent_config
 class alu_agent_config extends uvm_object;
     `uvm_object_utils(alu_agent_config)
     virtual alu_interface alu_vif;
@@ -6,3 +8,4 @@ class alu_agent_config extends uvm_object;
         super.new(name);
     endfunction
 endclass
+`endif

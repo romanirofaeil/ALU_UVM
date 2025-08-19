@@ -1,3 +1,5 @@
+`ifndef alu_interface
+`define alu_interface
 interface alu_interface(input logic clk, rst_n);
     logic ALU_en;
     logic signed [0:4] A;
@@ -21,3 +23,4 @@ interface alu_interface(input logic clk, rst_n);
     check_reset : assert property(reset);
     cover_reset : cover property(reset);
 endinterface
+`endif

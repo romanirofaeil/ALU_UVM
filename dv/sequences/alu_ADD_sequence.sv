@@ -1,3 +1,5 @@
+`ifndef alu_ADD_sequence
+`define alu_ADD_sequence
 class alu_ADD_sequence extends alu_sequence;
     `uvm_object_utils(alu_ADD_sequence)
     function new(string name = "alu_ADD_sequence");
@@ -7,3 +9,4 @@ class alu_ADD_sequence extends alu_sequence;
         return (alu_seq_item.randomize() with {(a_en == 1 && b_en == 0 && a_op == 0) || (a_en == 0 && b_en == 1 && (b_op == 1 || b_op == 2));});
     endfunction
 endclass
+`endif

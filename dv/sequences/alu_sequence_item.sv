@@ -1,3 +1,5 @@
+`ifndef alu_sequence_item
+`define alu_sequence_item
 class alu_sequence_item extends uvm_sequence_item;
     rand logic ALU_en;
     rand logic signed [0:4] A;
@@ -49,3 +51,4 @@ class alu_sequence_item extends uvm_sequence_item;
         super.new(name);
     endfunction
 endclass
+`endif

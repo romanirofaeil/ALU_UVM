@@ -1,3 +1,5 @@
+`ifndef alu_NAND_sequence
+`define alu_NAND_sequence
 class alu_NAND_sequence extends alu_sequence;
     `uvm_object_utils(alu_NAND_sequence)
     function new(string name = "alu_NAND_sequence");
@@ -7,3 +9,4 @@ class alu_NAND_sequence extends alu_sequence;
         return (alu_seq_item.randomize() with {a_en == 0 && b_en == 1 && b_op == 0;});
     endfunction
 endclass
+`endif

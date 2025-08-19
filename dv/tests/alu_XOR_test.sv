@@ -1,3 +1,5 @@
+`ifndef alu_XOR_test
+`define alu_XOR_test
 class alu_XOR_test extends alu_test;
     `uvm_component_utils(alu_XOR_test)
     function new(string name = "alu_XOR_test", uvm_component parent = null);
@@ -8,3 +10,4 @@ class alu_XOR_test extends alu_test;
         super.build_phase(phase);
     endfunction
 endclass
+`endif
