@@ -12,7 +12,7 @@ interface alu_interface(input logic clk, rst_n);
     logic signed [0:5] C;
     property ALU_Enable;
         @(posedge clk)
-            !ALU_en |-> !C_en and !C;
+            disable iff (!rst_n) !ALU_en |-> !C_en and !C;
     endproperty
     check_ALU_Enable : assert property(ALU_Enable);
     cover_ALU_Enable : cover property(ALU_Enable);
